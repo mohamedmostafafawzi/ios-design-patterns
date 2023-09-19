@@ -33,3 +33,7 @@
 - [ ] Command Pattern
 - [ ] Chain-of-responsibility Pattern
 - [ ] Coordinator Pattern
+
+### Resources
+- [Design Patterns in iOS](https://github.com/KevinTopollaj/Design-Patterns-in-iOS/tree/main) by [Kevin Topollaj](https://github.com/KevinTopollaj)
+- [Design Patterns in Swift](https://github.com/ochococo/Design-Patterns-In-Swift) by [Oktawian Chojnacki](https://github.com/ochococo)
