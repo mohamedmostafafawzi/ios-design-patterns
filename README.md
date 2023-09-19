@@ -9,7 +9,7 @@
 - [x] How and when to use each pattern
 - [x] What to be careful about when using each pattern
 - [x] MVC pattern
-- [ ] Delegation pattern
+- [x] Delegation pattern
 - [ ] Strategy pattern
 - [ ] Singleton pattern
 - [ ] Memento pattern
