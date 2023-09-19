@@ -10,7 +10,7 @@
 - [x] What to be careful about when using each pattern
 - [x] MVC pattern
 - [x] Delegation pattern
-- [ ] Strategy pattern
+- [x] Strategy pattern
 - [ ] Singleton pattern
 - [ ] Memento pattern
 - [ ] Observer pattern
