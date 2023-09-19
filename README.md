@@ -11,7 +11,7 @@
 - [x] MVC pattern
 - [x] Delegation pattern
 - [x] Strategy pattern
-- [ ] Singleton pattern
+- [x] Singleton pattern
 - [ ] Memento pattern
 - [ ] Observer pattern
 - [ ] Builder pattern
