@@ -37,13 +37,11 @@ public class MenuViewController: UIViewController {
 extension MenuViewController: UITableViewDataSource {
   
   public func tableView(_ tableView: UITableView,
-                 cellForRowAt indexPath: IndexPath)
-    -> UITableViewCell {
-      let cell =
-        tableView.dequeueReusableCell(withIdentifier: "Cell",
-                                      for: indexPath)
-      cell.textLabel?.text = items[indexPath.row]
-      return cell
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                             for: indexPath)
+    cell.textLabel?.text = items[indexPath.row]
+    return cell
   }
   
   public func tableView(_ tableView: UITableView,
@@ -58,6 +56,6 @@ extension MenuViewController: UITableViewDelegate {
   public func tableView(_ tableView: UITableView,
                  didSelectRowAt indexPath: IndexPath) {
     delegate?.menuViewController(self,
-                                 didSelectItemAtIndex: indexPath.row)
+                                 didSelectItemAtIndex:  indexPath.row)
   }
 }
