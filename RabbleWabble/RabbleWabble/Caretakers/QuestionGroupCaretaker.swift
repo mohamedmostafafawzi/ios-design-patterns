@@ -1,15 +1,15 @@
 /// Copyright (c) 2020 Razeware LLC
-///
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,14 +26,33 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import GameplayKit.GKRandomSource
+import Foundation
 
-public class RandomQuestionStrategy: BaseQuestionStrategy {
+public final class QuestionGroupCaretaker {
+  // MARK: - Properties
+  public let fileName = "QuestionGroupData"
+  public var questionGroups: [QuestionGroup] = []
+  public var selectedQuestionGroup: QuestionGroup!
   
-  public convenience init(questionGroupCaretaker: QuestionGroupCaretaker) {
-    let questionGroup = questionGroupCaretaker.selectedQuestionGroup!
-    let randomSource = GKRandomSource.sharedRandom()
-    let questions = randomSource.arrayByShufflingObjects(in: questionGroup.questions) as! [Question]
-    self.init(questionGroupCaretaker: questionGroupCaretaker, questions: questions)
+  // MARK: - Object Lifecycle
+  public init() {
+    loadQuestionGroups()
+  }
+  
+  private func loadQuestionGroups() {
+    if let questionGroups = try? DiskCaretaker.retrieve([QuestionGroup].self, from: fileName) {
+      self.questionGroups = questionGroups
+      return
+    }
+    
+    let bundle = Bundle.main
+    let url = bundle.url(forResource: fileName, withExtension: "json")!
+    self.questionGroups = try! DiskCaretaker.retrieve([QuestionGroup].self, from: url)
+    try! save()
+  }
+  
+  // MARK: - Instance Methods
+  public func save() throws {
+    try DiskCaretaker.save(questionGroups, to: fileName)
   }
 }
