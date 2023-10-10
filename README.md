@@ -14,7 +14,7 @@
 - [x] Singleton pattern
 - [x] Memento pattern
 - [x] Observer pattern
-- [ ] Builder pattern
+- [x] Builder pattern
 
 ## Intermediate iOS Design Patterns
 - [ ] MVVM pattern
