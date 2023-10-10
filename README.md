@@ -12,7 +12,7 @@
 - [x] Delegation pattern
 - [x] Strategy pattern
 - [x] Singleton pattern
-- [ ] Memento pattern
+- [x] Memento pattern
 - [ ] Observer pattern
 - [ ] Builder pattern
 
