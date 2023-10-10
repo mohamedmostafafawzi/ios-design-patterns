@@ -17,7 +17,7 @@
 - [x] Builder pattern
 
 ## Intermediate iOS Design Patterns
-- [ ] MVVM pattern
+- [x] MVVM pattern
 - [ ] Factory pattern
 - [ ] Adapter pattern
 - [ ] Iterator pattern
