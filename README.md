@@ -13,7 +13,7 @@
 - [x] Strategy pattern
 - [x] Singleton pattern
 - [x] Memento pattern
-- [ ] Observer pattern
+- [x] Observer pattern
 - [ ] Builder pattern
 
 ## Intermediate iOS Design Patterns
