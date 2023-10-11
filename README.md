@@ -19,7 +19,7 @@
 ## Intermediate iOS Design Patterns
 - [x] MVVM pattern
 - [x] Factory pattern
-- [ ] Adapter pattern
+- [x] Adapter pattern
 - [ ] Iterator pattern
 - [ ] Prototype pattern
 - [ ] State pattern
