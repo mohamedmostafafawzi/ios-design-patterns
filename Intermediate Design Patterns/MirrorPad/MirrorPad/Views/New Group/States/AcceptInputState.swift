@@ -1,15 +1,15 @@
 /// Copyright (c) 2020 Razeware LLC
-///
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,11 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
-/// This project and source code may use libraries or frameworks that are
-/// released under various Open-Source licenses. Use of those libraries and
-/// frameworks are governed by their own individual licenses.
-///
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,50 +27,37 @@
 /// THE SOFTWARE.
 
 import UIKit
-
-public class DrawView: UIView {
-
-  // MARK: - Instance Properties
-  public lazy var currentState = states[AcceptInputState.identifier]!
-  public lazy var states = [
-    AcceptInputState.identifier: AcceptInputState(drawView: self),
-    AnimateState.identifier: AnimateState(drawView: self),
-    ClearState.identifier: ClearState(drawView: self),
-    CopyState.identifier: CopyState(drawView: self)
-  ]
-  public var lineColor: UIColor = .black
-  public var lineWidth: CGFloat = 5.0
-  public var lines: [LineShape] = []
-
-  @IBInspectable public var scaleX: CGFloat = 1 {
-    didSet { applyTransform() }
-  }
-  @IBInspectable public var scaleY: CGFloat = 1 {
-    didSet { applyTransform() }
-  }
-  private func applyTransform() {
-    layer.sublayerTransform = CATransform3DMakeScale(scaleX, scaleY, 1)
-  }
-
-  // MARK: - UIResponder
-  public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    currentState.touchesBegan(touches, with: event)
-  }
-
-  public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    currentState.touchesMoved(touches, with: event)
-  }
-
-  // MARK: - Actions
-  public func animate() {
-    currentState.animate()
+public class AcceptInputState: DrawViewState {
+  public override func animate() {
+    let animateState = transitionToState(matching: AnimateState.identifier)
+    animateState.animate()
   }
   
-  public func copyLines(from source: DrawView) {
-    currentState.copyLines(from: source)
+  public override func clear() {
+    let clearState = transitionToState(matching: ClearState.identifier)
+    clearState.clear()
   }
-
-  public func clear() {
-    currentState.clear()
+  
+  public override func copyLines(from source: DrawView) {
+    let copyState = transitionToState(matching: CopyState.identifier)
+    copyState.copyLines(from: source)
+  }
+  
+  public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    guard let point = touches.first?.location(in: drawView) else { return }
+    let line = LineShape(color: drawView.lineColor,
+                         width: drawView.lineWidth,
+                         startPoint: point)
+    drawView.lines.append(line)
+    drawView.layer.addSublayer(line)
+  }
+  
+  public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    guard let point = touches.first?.location(in: drawView),
+      drawView.bounds.contains(point),
+      let currentLine = drawView.lines.last else {
+        return
+    }
+    currentLine.addPoint(point)    
   }
 }
