@@ -20,7 +20,7 @@
 - [x] MVVM pattern
 - [x] Factory pattern
 - [x] Adapter pattern
-- [ ] Iterator pattern
+- [x] Iterator pattern
 - [ ] Prototype pattern
 - [ ] State pattern
 - [ ] Multitask Delegate pattern
