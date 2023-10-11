@@ -22,7 +22,7 @@
 - [x] Adapter pattern
 - [x] Iterator pattern
 - [x] Prototype pattern
-- [ ] State pattern
+- [x] State pattern
 - [ ] Multitask Delegate pattern
 - [ ] Facade pattern
 
