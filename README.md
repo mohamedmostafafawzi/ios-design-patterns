@@ -21,7 +21,7 @@
 - [x] Factory pattern
 - [x] Adapter pattern
 - [x] Iterator pattern
-- [ ] Prototype pattern
+- [x] Prototype pattern
 - [ ] State pattern
 - [ ] Multitask Delegate pattern
 - [ ] Facade pattern
