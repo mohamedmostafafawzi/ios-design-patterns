@@ -18,10 +18,6 @@
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
 /// 
-/// This project and source code may use libraries or frameworks that are
-/// released under various Open-Source licenses. Use of those libraries and
-/// frameworks are governed by their own individual licenses.
-///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -32,44 +28,47 @@
 
 import UIKit
 
-public class ViewController: UIViewController {
-
-  // MARK: - Properties
-  public lazy var shareFacade: ShareFacade =
-    ShareFacade(entireDrawing: drawViewContainer,
-                inputDrawing: inputDrawView,
-                parentViewController: self)
+public class ShareFacade {
+  // MARK: - Instance Properties
+  public unowned var entireDrawing: UIView
+  public unowned var inputDrawing: UIView
+  public unowned var parentViewController: UIViewController
   
-  // MARK: - Outlets
-  @IBOutlet public var drawViewContainer: UIView!
-  @IBOutlet public var inputDrawView: DrawView!
-  @IBOutlet public var mirrorDrawViews: [DrawView]!
-
-  // MARK: - Actions
-  @IBAction public func animatePressed(_ sender: Any) {
-    inputDrawView.animate()
-    mirrorDrawViews.forEach { $0.copyLines(from: inputDrawView) }
-    mirrorDrawViews.forEach { $0.animate() }
-  }
-
-  @IBAction public func clearPressed(_ sender: Any) {
-    inputDrawView.clear()
-    mirrorDrawViews.forEach { $0.clear() }
-  }
-
-  @IBAction public func sharePressed(_ sender: Any) {
-    shareFacade.presentShareController()
+  private var imageRenderer = ImageRenderer()
+  
+  // MARK: - Object Lifecycle
+  public init(entireDrawing: UIView,
+              inputDrawing: UIView,
+              parentViewController: UIViewController) {
+    self.entireDrawing = entireDrawing
+    self.inputDrawing = inputDrawing
+    self.parentViewController = parentViewController
   }
   
-  // MARK: - View Lifecycle
-  public override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
-    return .top
-  }
-  
-  public override func viewDidLoad() {
-    super.viewDidLoad()
-    mirrorDrawViews.forEach {
-      inputDrawView.addDelegate($0)
-    }
+  // MARK: - Facade Methods
+  public func presentShareController() {
+    let selectionViewController =
+      DrawingSelectionViewController.createInstance(entireDrawing: entireDrawing,
+                                                    inputDrawing: inputDrawing,
+                                                    delegate: self)
+    parentViewController.present(selectionViewController, animated: true)
   }
 }
+
+extension ShareFacade: DrawingSelectionViewControllerDelegate {
+  public func drawingSelectionViewControllerDidCancel(_ viewController: DrawingSelectionViewController) {
+    parentViewController.dismiss(animated: true)
+  }
+  
+  public func drawingSelectionViewController(_ viewController: DrawingSelectionViewController,
+                                             didSelectView view: UIView) {
+    parentViewController.dismiss(animated: false)
+    let image = imageRenderer.convertViewToImage(view)
+    
+    let activityViewController = UIActivityViewController(activityItems: [image],
+                                                          applicationActivities: nil)
+    parentViewController.present(activityViewController, animated: true)
+  }
+}
+
+

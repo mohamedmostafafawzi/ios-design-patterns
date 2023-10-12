@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420415EF24CA989C00BC5FB4 /* ImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420415ED24CA989C00BC5FB4 /* ImageRenderer.swift */; };
+		420415F024CA989C00BC5FB4 /* DrawingSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420415EE24CA989C00BC5FB4 /* DrawingSelectionViewController.swift */; };
+		420415F224CA98A500BC5FB4 /* DrawingSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420415F124CA98A500BC5FB4 /* DrawingSelectionViewController.xib */; };
+		420415F424CA990700BC5FB4 /* ShareFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420415F324CA990700BC5FB4 /* ShareFacade.swift */; };
 		4236735E24CA7923007441E0 /* AcceptInputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236735D24CA7923007441E0 /* AcceptInputState.swift */; };
 		4236736024CA792B007441E0 /* AnimateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236735F24CA792B007441E0 /* AnimateState.swift */; };
 		4236736224CA7932007441E0 /* ClearState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236736124CA7932007441E0 /* ClearState.swift */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420415ED24CA989C00BC5FB4 /* ImageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRenderer.swift; path = ../../../../starter/ImageRenderer.swift; sourceTree = "<group>"; };
+		420415EE24CA989C00BC5FB4 /* DrawingSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingSelectionViewController.swift; path = ../../../../starter/DrawingSelectionViewController.swift; sourceTree = "<group>"; };
+		420415F124CA98A500BC5FB4 /* DrawingSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DrawingSelectionViewController.xib; path = ../../../../starter/DrawingSelectionViewController.xib; sourceTree = "<group>"; };
+		420415F324CA990700BC5FB4 /* ShareFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFacade.swift; sourceTree = "<group>"; };
 		4236735D24CA7923007441E0 /* AcceptInputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInputState.swift; sourceTree = "<group>"; };
 		4236735F24CA792B007441E0 /* AnimateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateState.swift; sourceTree = "<group>"; };
 		4236736124CA7932007441E0 /* ClearState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearState.swift; sourceTree = "<group>"; };
@@ -88,6 +96,9 @@
 		4245EC7C2074417100E347D0 /* Facades */ = {
 			isa = PBXGroup;
 			children = (
+				420415EE24CA989C00BC5FB4 /* DrawingSelectionViewController.swift */,
+				420415ED24CA989C00BC5FB4 /* ImageRenderer.swift */,
+				420415F324CA990700BC5FB4 /* ShareFacade.swift */,
 			);
 			path = Facades;
 			sourceTree = "<group>";
@@ -142,6 +153,7 @@
 		42F35C4920449CAA00584FAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				420415F124CA98A500BC5FB4 /* DrawingSelectionViewController.xib */,
 				4236735B24CA78F8007441E0 /* DrawView */,
 				42F35C3E20449C9A00584FAD /* LaunchScreen.storyboard */,
 				42F35C3920449C9A00584FAD /* Main.storyboard */,
@@ -218,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420415F224CA98A500BC5FB4 /* DrawingSelectionViewController.xib in Resources */,
 				42F35C4020449C9A00584FAD /* LaunchScreen.storyboard in Resources */,
 				42F35C3D20449C9A00584FAD /* Assets.xcassets in Resources */,
 				42F35C3B20449C9A00584FAD /* Main.storyboard in Resources */,
@@ -232,9 +245,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4236736024CA792B007441E0 /* AnimateState.swift in Sources */,
+				420415F424CA990700BC5FB4 /* ShareFacade.swift in Sources */,
 				42F35C3820449C9A00584FAD /* ViewController.swift in Sources */,
 				4236736424CA7939007441E0 /* CopyState.swift in Sources */,
 				424387E72044A1ED0056B653 /* LineShape.swift in Sources */,
+				420415EF24CA989C00BC5FB4 /* ImageRenderer.swift in Sources */,
+				420415F024CA989C00BC5FB4 /* DrawingSelectionViewController.swift in Sources */,
 				4236736624CA7940007441E0 /* DrawViewState.swift in Sources */,
 				4236736224CA7932007441E0 /* ClearState.swift in Sources */,
 				42ED238324C97DE700DE3C41 /* Copying.swift in Sources */,
