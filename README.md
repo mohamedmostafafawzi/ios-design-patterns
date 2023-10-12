@@ -24,7 +24,7 @@
 - [x] Prototype pattern
 - [x] State pattern
 - [x] Multitask Delegate pattern
-- [ ] Facade pattern
+- [x] Facade pattern
 
 ## Advanced iOS Design Patterns
 - [ ] Flyweight Pattern
