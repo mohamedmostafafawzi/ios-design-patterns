@@ -23,7 +23,7 @@
 - [x] Iterator pattern
 - [x] Prototype pattern
 - [x] State pattern
-- [ ] Multitask Delegate pattern
+- [x] Multitask Delegate pattern
 - [ ] Facade pattern
 
 ## Advanced iOS Design Patterns
