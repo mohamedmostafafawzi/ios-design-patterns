@@ -27,7 +27,7 @@
 - [x] Facade pattern
 
 ## Advanced iOS Design Patterns
-- [ ] Flyweight Pattern
+- [x] Flyweight Pattern
 - [ ] Mediator Pattern
 - [ ] Composite Pattern
 - [ ] Command Pattern
