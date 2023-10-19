@@ -31,7 +31,7 @@
 - [x] Mediator Pattern
 - [x] Composite Pattern
 - [x] Command Pattern
-- [ ] Chain-of-responsibility Pattern
+- [x] Chain-of-responsibility Pattern
 - [ ] Coordinator Pattern
 
 ### Resources
