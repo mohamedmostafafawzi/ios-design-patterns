@@ -30,7 +30,7 @@
 - [x] Flyweight Pattern
 - [x] Mediator Pattern
 - [x] Composite Pattern
-- [ ] Command Pattern
+- [x] Command Pattern
 - [ ] Chain-of-responsibility Pattern
 - [ ] Coordinator Pattern
 
