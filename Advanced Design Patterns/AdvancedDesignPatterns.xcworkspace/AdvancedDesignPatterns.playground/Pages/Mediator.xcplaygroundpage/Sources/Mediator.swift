@@ -52,8 +52,6 @@ open class Mediator<ColleagueType> {
   }
   
   // MARK: - Instance Properties
-  private var colleagueWrappers: [ColleagueWrapper] = []
-  
   public var colleagues: [ColleagueType] {
     var colleagues: [ColleagueType] = []
     colleagueWrappers = colleagueWrappers.filter {
@@ -63,6 +61,8 @@ open class Mediator<ColleagueType> {
     }
     return colleagues
   }
+  
+  private var colleagueWrappers: [ColleagueWrapper] = []
   
   // MARK: - Object Lifecycle
   public init() { }
