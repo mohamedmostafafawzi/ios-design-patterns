@@ -29,7 +29,7 @@
 ## Advanced iOS Design Patterns
 - [x] Flyweight Pattern
 - [x] Mediator Pattern
-- [ ] Composite Pattern
+- [x] Composite Pattern
 - [ ] Command Pattern
 - [ ] Chain-of-responsibility Pattern
 - [ ] Coordinator Pattern
