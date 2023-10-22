@@ -32,7 +32,7 @@
 - [x] Composite Pattern
 - [x] Command Pattern
 - [x] Chain-of-responsibility Pattern
-- [ ] Coordinator Pattern
+- [x] Coordinator Pattern
 
 ### Resources
 - [Design Patterns in iOS](https://github.com/KevinTopollaj/Design-Patterns-in-iOS/tree/main) by [Kevin Topollaj](https://github.com/KevinTopollaj)
