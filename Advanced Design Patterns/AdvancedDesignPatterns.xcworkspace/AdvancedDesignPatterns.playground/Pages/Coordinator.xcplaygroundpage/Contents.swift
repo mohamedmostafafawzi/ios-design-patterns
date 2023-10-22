@@ -19,3 +19,21 @@
  
  ## Code Example
  */
+import PlaygroundSupport
+import UIKit
+
+let homeViewController = HomeViewController.instantiate()
+let navigationController = UINavigationController(rootViewController: homeViewController)
+
+let router = NavigationRouter(navigationController: navigationController)
+let coordinator = HowToCodeCoordinator(router: router)
+
+homeViewController.onButtonPressed = { [weak coordinator] in
+  coordinator?.present(animated: true, onDismissed: nil)
+}
+
+var frame = CGRect.zero
+frame.size = CGSize(width: 320.0, height: 480.0)
+navigationController.view.frame = frame
+
+PlaygroundPage.current.liveView = navigationController
