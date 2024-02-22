@@ -1,6 +1,6 @@
 # iOS Design Patterns
 
-## What is design patterns?
+## What are design patterns?
 > Design patterns are reusable, templated solutions to situations you’ll see again and again as you build apps. Design patterns in iOS can help you create logically-constructed code that leads to well-architected apps, by using generic solutions that experienced developers have encountered many times before.
 
 ## Fundamental iOS Design Patterns
